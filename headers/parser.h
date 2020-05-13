@@ -2,18 +2,24 @@
 #include <string>
 #include <stdlib.h>
 #include <iostream>
-#include "main.h"
+#include <vector>
 
 #ifndef PARSER_H
 #define PARSER_h
 
+struct command{
+
+    std::string program;
+    std::vector <std::string> args;
+
+};
 
 class parser{
 
     public:
         parser();
 
-        command parser_line(std::string line);
+        command parse_line(std::string line);
 
         
     private:
