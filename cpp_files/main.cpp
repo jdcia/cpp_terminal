@@ -20,6 +20,8 @@ int main(){
 
     command com;
 
+    process_manager *manager = new process_manager();
+
     //main while loop
     while(true){
         cout << "Enter string: \n";
@@ -33,6 +35,8 @@ int main(){
         com = p->parse_line(line);
 
         print_struct(com);
+
+        manager->run(com);
 
     }
 
