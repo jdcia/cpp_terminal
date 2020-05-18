@@ -8,11 +8,11 @@ process_manager::process_manager(){
 
 
 //Will run a single command.
-void process_manager::run(command com){
+void process_manager::run(command com){       
 
-    current_proc = new process(com);
+        current_proc = new process(com);
 
-    current_proc->preform_task();
+        current_proc->preform_task();
 
 }
 

@@ -12,6 +12,28 @@ void process::preform_task(){
 
 //Built in functions-----------------------------------------------
 
+void cd::preform_task(){
+    std::cout << "cd" << "\n";
+}
 
+void ls::preform_task(){
+    std::cout << "ls" << "\n";
+}
+
+void mkdir::preform_task(){
+    std::cout << "mkdir" << "\n";
+}
+
+void rm::preform_task(){
+    std::cout << "rm" << "\n";
+}
+
+void rmdir::preform_task(){
+    std::cout << "rmdir" << "\n";
+}
+
+void pwd::preform_task(){
+    std::cout << "pwd" << "\n";
+}
 
 //Non built in program----------------------------------------------
