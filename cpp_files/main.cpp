@@ -22,6 +22,8 @@ int main(){
 
     process_manager *manager = new process_manager();
 
+    signal_handler *sig = new signal_handler();
+
     //main while loop
     while(true){
         cout << "terminal:";
