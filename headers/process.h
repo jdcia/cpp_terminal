@@ -17,16 +17,4 @@ class process{
 
 };
 
-void preform_cd();
-
-void preform_ls();
-
-void preform_mkdir();
-    
-void preform_rm();
-
-void preform_rmdir();
-    
-void preform_pwd();
-
 #endif

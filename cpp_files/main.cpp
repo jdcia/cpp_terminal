@@ -24,7 +24,7 @@ int main(){
 
     //main while loop
     while(true){
-        cout << "Enter string: \n";
+        cout << "terminal:";
 
         getline(cin, line);
 
