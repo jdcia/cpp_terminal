@@ -7,32 +7,33 @@ process::process(command c){
 }
 
 void process::preform_task(){
+    //this will be for not built infunction
     std::cout << "To be executed: " << com.program << "\n";
 }
 
 //Built in functions-----------------------------------------------
 
-void cd::preform_task(){
+void preform_cd(){
     std::cout << "cd" << "\n";
 }
 
-void ls::preform_task(){
+void preform_ls(){
     std::cout << "ls" << "\n";
 }
 
-void mkdir::preform_task(){
+void preform_mkdir(){
     std::cout << "mkdir" << "\n";
 }
 
-void rm::preform_task(){
+void preform_rm(){
     std::cout << "rm" << "\n";
 }
 
-void rmdir::preform_task(){
+void preform_rmdir(){
     std::cout << "rmdir" << "\n";
 }
 
-void pwd::preform_task(){
+void preform_pwd(){
     std::cout << "pwd" << "\n";
 }
 

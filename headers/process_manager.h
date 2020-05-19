@@ -5,7 +5,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include "process.h"
+
+typedef void (*function_pointer)(void); //function pointer type def
 
 class process_manager{
     public:
@@ -16,6 +19,8 @@ class process_manager{
         process *current_proc; //current process id
 
         std::vector<process> background_procs; //holds the ids of back process.
+
+        std::map <std::string, function_pointer> built_in;
 
         //functions:
         void run(command com);

@@ -8,8 +8,7 @@
 class process{
 
     public:
-        int process_id;
-
+        int pid; //since these will be full processes we need to keep track on the pid
         command com;
 
         //this will be overided class who inherits this
@@ -18,33 +17,16 @@ class process{
 
 };
 
-//built in functions
+void preform_cd();
 
-class cd : public process{
-    void preform_task();
-};
+void preform_ls();
 
-class ls : public process{
-    void preform_task();
-};
+void preform_mkdir();
+    
+void preform_rm();
 
-class mkdir : public process{
-    void preform_task();
-};
-
-class rm : public process{
-    void preform_task();
-};
-
-class rmdir : public process{
-    void preform_task();
-};
-
-class pwd : public process{
-    void preform_task();
-};
-
-//none built in function
-class other_program : public process{};
+void preform_rmdir();
+    
+void preform_pwd();
 
 #endif
