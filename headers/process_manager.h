@@ -8,14 +8,17 @@
 #include <map>
 #include "process.h"
 
-typedef void (*function_pointer)(command com); //function pointer type def
 
 class process_manager{ 
+    typedef void (*function_pointer)(process_manager *manager, command com); //function pointer type def
+
     public:
         //constructor
         process_manager();
 
         //variables:
+        std::string current_directory;
+
         process *current_proc; //current process id
 
         std::vector<command> history;
@@ -33,24 +36,22 @@ class process_manager{
 
         void show_backgrounded();
 
-        void print_history();
-
-
 };
 
 
+//built in functions/syscalls
+void preform_cd(process_manager *manager, command com);
 
-void preform_cd(command com);
+void preform_ls(process_manager *manager, command com);
 
-void preform_ls(command com);
-
-void preform_mkdir(command com);
+void preform_mkdir(process_manager *manager, command com);
     
-void preform_rm(command com);
+void preform_rm(process_manager *manager, command com);
 
-void preform_rmdir(command com);
+void preform_rmdir(process_manager *manager, command com);
     
-void preform_pwd(command com);
+void preform_pwd(process_manager *manager, command com);
 
+void print_history(process_manager *manager, command com);
 
 #endif

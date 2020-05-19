@@ -10,6 +10,7 @@ process_manager::process_manager(){
     built_in["rm"] = &preform_rm;
     built_in["rmdir"] = &preform_rmdir;
     built_in["pwd"] = &preform_pwd;
+    built_in["history"] = &print_history;
     return;
 }
 
@@ -20,12 +21,8 @@ void process_manager::run(command com){
 
     history.push_back(com);
 
-    //TODO try to find way to put into map
-    if(com.program.compare("history") == 0){
-        print_history();
-    }
-    else if(built_in.find(com.program) != built_in.end()){
-        built_in[com.program](com); //call built in function
+    if(built_in.find(com.program) != built_in.end()){
+        built_in[com.program](this, com); //call built in function
     }
     else{
         //function not found
@@ -46,8 +43,8 @@ void process_manager::show_backgrounded(){
 
 }
 
-void process_manager::print_history(){
-    for(command i : history){
+void print_history(process_manager *manager, command com){
+    for(command i : manager->history){
         std::cout << i.program << " ";
 
         for(std::string arg: i.args){
@@ -60,27 +57,27 @@ void process_manager::print_history(){
 
 //Built in functions-----------------------------------------------
 
-void preform_cd(command com){
+void preform_cd(process_manager *manager, command com){
     std::cout << "cd" << "\n";
 }
 
-void preform_ls(command com){
+void preform_ls(process_manager *manager, command com){
     std::cout << "ls" << "\n";
 }
 
-void preform_mkdir(command com){
+void preform_mkdir(process_manager *manager, command com){
     std::cout << "mkdir" << "\n";
 }
 
-void preform_rm(command com){
+void preform_rm(process_manager *manager, command com){
     std::cout << "rm" << "\n";
 }
 
-void preform_rmdir(command com){
+void preform_rmdir(process_manager *manager, command com){
     std::cout << "rmdir" << "\n";
 }
 
-void preform_pwd(command com){
+void preform_pwd(process_manager *manager, command com){
     std::cout << "pwd" << "\n";
 }
 
