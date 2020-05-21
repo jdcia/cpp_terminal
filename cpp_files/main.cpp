@@ -25,8 +25,18 @@ int main(){
     signal_handler *sig = new signal_handler();
 
     //main while loop
+
+    char hostname[HOST_NAME_MAX];
+    char username[LOGIN_NAME_MAX];
+    char cwd[FILENAME_MAX];
+
+
+    gethostname(hostname, HOST_NAME_MAX);
+    getlogin_r(username, LOGIN_NAME_MAX);
+    getcwd(cwd, FILENAME_MAX );
+
     while(true){
-        cout << "terminal:";
+        cout << username << "@" << hostname << ":" << cwd << "$ ";
 
         getline(cin, line);
 
