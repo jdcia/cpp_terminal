@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include "process.h"
+#include <unistd.h>
 
 
 class process_manager{ 
@@ -18,6 +19,8 @@ class process_manager{
 
         //variables:
         std::string current_directory;
+
+        bool needs_update;
 
         process *current_proc; //current process id
 

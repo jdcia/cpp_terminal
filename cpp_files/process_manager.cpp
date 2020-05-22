@@ -3,6 +3,9 @@
 
 //contructor for executing command. 
 process_manager::process_manager(){
+
+    needs_update = false;
+
     //Initialize built in functions into hash map.
     built_in["cd"] = &preform_cd;
     built_in["ls"] = &preform_ls;
@@ -58,7 +61,14 @@ void print_history(process_manager *manager, command com){
 //Built in functions-----------------------------------------------
 
 void preform_cd(process_manager *manager, command com){
-    std::cout << "cd" << "\n";
+    // std::cout << "cd" << "\n";
+
+    //add checks here for arguements
+
+    manager->needs_update = true;
+
+    chdir(const_cast<char *>(com.args[0].c_str()));
+
 }
 
 void preform_ls(process_manager *manager, command com){
@@ -77,7 +87,14 @@ void preform_rmdir(process_manager *manager, command com){
     std::cout << "rmdir" << "\n";
 }
 
+//may not support being that path is always shown.
 void preform_pwd(process_manager *manager, command com){
-    std::cout << "pwd" << "\n";
+
+    //add checks to make sure.
+    
+    char cwd[FILENAME_MAX];
+    getcwd(cwd, FILENAME_MAX );
+
+    std::cout << cwd << "\n";
 }
 

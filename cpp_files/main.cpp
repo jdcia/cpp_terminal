@@ -50,6 +50,11 @@ int main(){
 
         manager->run(com);
 
+        //check if cwd has changed.
+        if(manager->needs_update == true){
+            getcwd(cwd, FILENAME_MAX );
+        }
+
     }
 
     return 0;
