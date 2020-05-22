@@ -45,14 +45,6 @@ class process_manager{
 //built in functions/syscalls
 void preform_cd(process_manager *manager, command com);
 
-void preform_ls(process_manager *manager, command com);
-
-void preform_mkdir(process_manager *manager, command com);
-    
-void preform_rm(process_manager *manager, command com);
-
-void preform_rmdir(process_manager *manager, command com);
-    
 void preform_pwd(process_manager *manager, command com);
 
 void print_history(process_manager *manager, command com);

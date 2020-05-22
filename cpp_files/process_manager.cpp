@@ -8,10 +8,6 @@ process_manager::process_manager(){
 
     //Initialize built in functions into hash map.
     built_in["cd"] = &preform_cd;
-    built_in["ls"] = &preform_ls;
-    built_in["mkdir"] = &preform_mkdir;
-    built_in["rm"] = &preform_rm;
-    built_in["rmdir"] = &preform_rmdir;
     built_in["pwd"] = &preform_pwd;
     built_in["history"] = &print_history;
     return;
@@ -69,22 +65,6 @@ void preform_cd(process_manager *manager, command com){
 
     chdir(const_cast<char *>(com.args[0].c_str()));
 
-}
-
-void preform_ls(process_manager *manager, command com){
-    std::cout << "ls" << "\n";
-}
-
-void preform_mkdir(process_manager *manager, command com){
-    std::cout << "mkdir" << "\n";
-}
-
-void preform_rm(process_manager *manager, command com){
-    std::cout << "rm" << "\n";
-}
-
-void preform_rmdir(process_manager *manager, command com){
-    std::cout << "rmdir" << "\n";
 }
 
 //may not support being that path is always shown.
