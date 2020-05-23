@@ -8,6 +8,7 @@
 #include <map>
 #include "process.h"
 #include <unistd.h>
+#include <sys/wait.h>
 
 
 class process_manager{ 

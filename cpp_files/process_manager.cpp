@@ -24,8 +24,31 @@ void process_manager::run(command com){
         built_in[com.program](this, com); //call built in function
     }
     else{
-        //function not found
-        std::cout << "Program not found\n"; 
+        //execute the function with execv.
+        char *args[com.args.size() + 2];
+        args[0] = const_cast<char *>(com.program.c_str());
+
+        for(int i = 1; i < com.args.size(); i++){
+            args[i] = const_cast<char *>(com.args[i].c_str());
+        }
+
+        args[com.args.size() + 1] = NULL;
+
+        pid_t pid = fork();
+
+        if(pid == -1){
+            std::cout << "failed fork\n";
+        }
+        else if(pid > 0){
+            //parent
+            int status;
+            waitpid(pid, &status, 0);            
+        }
+        else{
+            execv(const_cast<char *>(com.program.c_str()), args);
+            _exit(-1);
+        }   
+
     }
 
 
