@@ -35,10 +35,26 @@ int main(){
     getlogin_r(username, LOGIN_NAME_MAX);
     getcwd(cwd, FILENAME_MAX );
 
+    char single;
+
     while(true){
         cout << username << "@" << hostname << ":" << cwd << "$ ";
 
-        getline(cin, line);
+        //getline(cin, line);
+
+        line = ""; //reset line
+
+        while(true){ //get each character individually so we can check for signals.
+            cin.get(single);
+
+            if(single == '\n'){ //break on newline which concludes the statement, this may become more complex.
+                break;
+            }
+            line += single;
+
+        }
+
+
 
         if(line.compare("exit") == 0){
             break;
