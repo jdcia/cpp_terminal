@@ -37,6 +37,8 @@ int main(){
 
     char single;
 
+    string arrow_sub;
+
     while(true){
         cout << username << "@" << hostname << ":" << cwd << "$ ";
 
@@ -50,6 +52,7 @@ int main(){
             if(single == '\n'){ //break on newline which concludes the statement, this may become more complex.
                 break;
             }
+
             line += single;
 
         }
